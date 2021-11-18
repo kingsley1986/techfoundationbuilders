@@ -14,7 +14,12 @@ var expressLayouts = require('express-ejs-layouts');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 require('dotenv').config()
+const passport = require("passport");
+const flash = require("connect-flash");
+const session = require("express-session");
 
+
+require("./config/passport")(passport);
 
 
 var app = express();
@@ -40,6 +45,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+app.use(
+	session({
+		secret: "secret",
+		resave: true,
+		saveUninitialized: true,
+	})
+);
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect flash
+app.use(flash());
+
+// Global variables
+app.use(function (req, res, next) {
+	res.locals.success_msg = req.flash("success_msg");
+	res.locals.error_msg = req.flash("error_msg");
+	res.locals.error = req.flash("error");
+	next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
