@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose")
+var expressLayouts = require('express-ejs-layouts');
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +25,7 @@ try {
   console.log(error)
   console.log("could not connect");
 }
+app.use(expressLayouts);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
