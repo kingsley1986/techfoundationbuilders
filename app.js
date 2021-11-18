@@ -19,16 +19,16 @@ require('dotenv').config()
 
 var app = express();
 
-try {
-  mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }, () =>
-    console.log("connected"));
-} catch (error) {
-  console.log(error)
-  console.log("could not connect");
-}
+// try {
+//   mongoose.connect(process.env.MONGODB_URI || process.env.DATABASE_URL, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true
+//     }, () =>
+//     console.log("connected"));
+// } catch (error) {
+//   console.log(error)
+//   console.log("could not connect");
+// }
 app.use(expressLayouts);
 
 // view engine setup
