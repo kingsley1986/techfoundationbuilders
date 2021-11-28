@@ -15,6 +15,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require("./routes/posts");
 var commentRouter = require("./routes/comments");
+var contactsRouter = require("./routes/contacts");
 
 
 require('dotenv').config()
@@ -82,6 +83,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/posts", postsRouter);
 app.use("/posts", commentRouter);
+app.use("/contacts", contactsRouter);
 
 
 // catch 404 and forward to error handler

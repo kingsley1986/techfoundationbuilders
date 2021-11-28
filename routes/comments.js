@@ -6,7 +6,6 @@ require("dotenv").config();
 const fs = require("fs");
 const axios = require("axios");
 
-
 router.post("/:postId/comment", async (req, res) => {
     const response_key = req.body["g-recaptcha-response"];
 

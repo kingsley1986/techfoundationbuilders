@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 
 
 
+
 // Welcome Page
 // router.get("/", forwardAuthenticated, (req, res) => res.render("index"));
 
