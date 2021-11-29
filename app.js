@@ -43,14 +43,6 @@ try {
 }
 app.use(expressLayouts);
 
-var reqTimer = setTimeout(function wakeUp() {
-	request("https://techfoundation.herokuapp.com/", function () {
-		console.log("WAKE UP DYNO");
-	});
-	return (reqTimer = setTimeout(wakeUp, 221000));
-	console.log(wakeUp);
-	console.log(reqTimer);
-}, 221000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
