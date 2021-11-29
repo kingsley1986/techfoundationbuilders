@@ -197,8 +197,9 @@ textarea:valid+label {
     padding-top: 30px;
   }
   
-  img {
+  .contact-image {
     width: 38px;
     height: 38px;
   }
 }
+
