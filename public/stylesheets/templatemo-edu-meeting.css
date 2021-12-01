@@ -206,7 +206,7 @@ header
 --------------------------------------------- 
 */
 
-.sub-header {
+/* .sub-header {
   background-color: #1f272b;
   position: relative;
   z-index: 1111;
@@ -241,7 +241,7 @@ header
 .sub-header .left-content p em {
    font-style: normal;
    color: #f5a425;
-}
+} */
 
 .background-header {
   background-color: #fff!important;
@@ -273,7 +273,7 @@ header
 .header-area {
   background-color: rgba(250,250,250,0.15);
   position: absolute;
-  top: 40px;
+  /* top: 40px; */
   left: 0;
   right: 0;
   z-index: 100;
@@ -1021,7 +1021,7 @@ section.upcoming-meetings .categories .main-button-red a {
 apply now
 ---------------------------------------------
 */
-
+/* 
 section.apply-now {
   background-image: url(../images/apply-bg.jpg);
   background-position: center center;
@@ -1098,7 +1098,7 @@ section.apply-now .item p {
   padding: 20px;
   padding-top: 0;
 }
-
+ */
 
 /* 
 ---------------------------------------------
@@ -1112,7 +1112,7 @@ section.our-courses {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 140px;
+  /* padding-top: 140px; */
   padding-bottom: 130px;
 }
 
