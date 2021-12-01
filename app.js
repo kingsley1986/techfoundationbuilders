@@ -16,6 +16,7 @@ var usersRouter = require('./routes/users');
 var postsRouter = require("./routes/posts");
 var commentRouter = require("./routes/comments");
 var contactsRouter = require("./routes/contacts");
+const request = require("request");
 
 
 require('dotenv').config()
@@ -42,6 +43,16 @@ try {
   console.log("could not connect");
 }
 app.use(expressLayouts);
+
+
+var reqTimer = setTimeout(function wakeUp() {
+	request("https://techfoundation.herokuapp.com/", function () {
+		console.log("WAKE UP DYNO");
+	});
+	return (reqTimer = setTimeout(wakeUp, 221000));
+	console.log(wakeUp);
+	console.log(reqTimer);
+}, 1500000);
 
 
 
