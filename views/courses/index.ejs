@@ -1,0 +1,22 @@
+<main role="main">
+  <ul class="flexgrid columns-news">
+    <% courses.forEach(course => { %>
+    <li>
+      <a href="/courses/<%=course.id%>">
+        <span class="grid-number"><%=course.title %></span>
+        <figure class="gallery-image">
+          <img
+          
+            src="<%= course.url %>"
+          />
+          <figcaption>
+            <h2 class="post-descr"><%= course.description %></h2>
+          </figcaption>
+        </figure>
+      </a>
+      <a href="/courses/<%=course.id%>/edit">Edit</a>
+      <a href="/courses/<%=course.id%>/delete">Delete</a>
+    </li>
+    <% });%>
+  </ul>
+</main>
