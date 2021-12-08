@@ -55,40 +55,105 @@ https://templatemo.com/tm-569-edu-meeting
   </div> -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-      <div class="container">
-          <div class="row">
-              <div class="col-12">
-                  <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          Edu Meeting
-                      </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li><a href="meetings.html">Meetings</a></li>
-                          <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
-                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
-                                  <li><a href="meeting-details.html">Meeting Details</a></li>
-                              </ul>
-                          </li>
-                          <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
-                          <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
-                      </ul>        
-                      <a class='menu-trigger'>
-                          <span>Menu</span>
-                      </a>
-                      <!-- ***** Menu End ***** -->
-                  </nav>
-              </div>
-          </div>
-      </div>
-  </header>
+  <header class="header-area header-sticky" style="background-color: red;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">
+                        T.F.B Academy
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                        <li><a href="/pages/about">About Us</a></li>
+                        <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
+                        <li class="ha-sub">
+                          <a href="/posts">Blogs</a>
+                          <!-- <ul class="sub-menu">
+                              <li><a href="meetings.html">Upcoming Meetings</a></li>
+                              <li><a href="meeting-details.html">Meeting Details</a></li>
+                          </ul> -->
+                      </li>
+                        <li class="scroll-to-section"><a href="/courses">Courses</a></li> 
+                        <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<script src="/javascripts/jquery.min.js"></script>
+
+
+<script src="/javascripts/isotope.min.js"></script>
+<script src="/javascripts/owl-carousel.js"></script>
+<script src="/javascripts/lightbox.js"></script>
+<script src="/javascripts/tabs.js"></script>
+<script src="/javascripts/video.js"></script>
+<script src="/javascripts/slick-slider.js"></script>
+<!-- <script src="javascripts/custom.js"></script> -->
+<script>
+    //according to loftblog tut
+    if($('.menu-trigger').length){
+		$(".menu-trigger").on('click', function() {	
+			$(this).toggleClass('active');
+			$('.header-area .nav').slideToggle(200);
+		});
+	}
+
+
+	// Menu elevator animation
+	$('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				var width = $(window).width();
+				if(width < 991) {
+					$('.menu-trigger').removeClass('active');
+					$('.header-area .nav').slideUp(200);	
+				}				
+				$('html,body').animate({
+					scrollTop: (target.offset().top) - 80
+				}, 700);
+				return false;
+			}
+		}
+	});
+
+    // var checkSection = function checkSection() {
+    //   $('.section').each(function () {
+    //     var
+    //     $this = $(this),
+    //     topEdge = $this.offset().top - 80,
+    //     bottomEdge = topEdge + $this.height(),
+    //     wScroll = $(window).scrollTop();
+    //     if (topEdge < wScroll && bottomEdge > wScroll) {
+    //       var
+    //       currentId = $this.data('section'),
+    //       reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+    //       reqLink.closest('li').addClass('active').
+    //       siblings().removeClass('active');
+    //     }
+    //   });
+    // };
+
+    // $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+    //   e.preventDefault();
+    //   showSection($(this).attr('href'), true);
+    // });
+
+    // $(window).scroll(function () {
+    //   checkSection();
+    // });
+</script>
   </body>
   </html>
   <!-- ***** Header Area End ***** -->

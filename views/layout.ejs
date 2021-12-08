@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>T.F.B Academy</title>
 
@@ -61,23 +62,23 @@ https://templatemo.com/tm-569-edu-meeting
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="/" class="logo">
                           T.F.B Academy
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li><a href="meetings.html">Meetings</a></li>
+                          <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                          <li><a href="/pages/about">About Us</a></li>
                           <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Pages</a>
-                              <ul class="sub-menu">
+                          <li class="ha-sub">
+                              <a href="/posts">Blogs</a>
+                              <!-- <ul class="sub-menu">
                                   <li><a href="meetings.html">Upcoming Meetings</a></li>
                                   <li><a href="meeting-details.html">Meeting Details</a></li>
-                              </ul>
+                              </ul> -->
                           </li>
-                          <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
+                          <li class="scroll-to-section"><a href="/courses">Courses</a></li> 
                           <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
@@ -190,7 +191,7 @@ https://templatemo.com/tm-569-edu-meeting
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Upcoming Meetings</h2>
+            <h2>Teachers and Volunteers</h2>
           </div>
         </div>
         <!-- <div class="col-lg-4">
@@ -213,16 +214,16 @@ https://templatemo.com/tm-569-edu-meeting
             <div class="col-lg-4">
               <div class="meeting-item">
                 <div class="thumb">
-                  <div class="price">
+                  <!-- <div class="price">
                     <span>$22.00</span>
-                  </div>
+                  </div> -->
                   <a href="meeting-details.html"><img src="/images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
                 </div>
-                <div class="down-content">
-                  <div class="date">
+                <div class="text-center down-content" >
+                  <!-- <div class="date">
                     <h6>Nov <span>10</span></h6>
-                  </div>
-                  <a href="meeting-details.html"><h4>New Lecturers Meeting</h4></a>
+                  </div> -->
+                  <a href="meeting-details.html" ><h4>New Lecturers Meeting</h4></a>
                   <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
                 </div>
               </div>
@@ -230,32 +231,35 @@ https://templatemo.com/tm-569-edu-meeting
             <div class="col-lg-4">
               <div class="meeting-item">
                 <div class="thumb">
-                  <div class="price">
+                  <!-- <div class="price">
                     <span>$36.00</span>
-                  </div>
+                  </div> -->
                   <a href="meeting-details.html"><img src="/images/meeting-02.jpg" alt="Online Teaching"></a>
                 </div>
-                <div class="down-content">
-                  <div class="date">
+                <div class="text-center down-content">
+                  <!-- <div class="date">
                     <h6>Nov <span>24</span></h6>
-                  </div>
-                  <a href="meeting-details.html"><h4>Online Teaching Techniques</h4></a>
+                  </div> -->
+                  <a href="meeting-details.html " ><h4>Online Teaching Techniques</h4></a>
+                  
                   <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                  
                 </div>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="meeting-item">
                 <div class="thumb">
-                  <div class="price">
+                  <!-- <div class="price">
                     <span>$14.00</span>
-                  </div>
+                  </div> -->
                   <a href="meeting-details.html"><img src="/images/meeting-03.jpg" alt="Higher Education"></a>
                 </div>
-                <div class="down-content">
-                  <div class="date">
+                <div class="text-center down-content">
+                  <!-- <div class="date">
                     <h6>Nov <span>26</span></h6>
-                  </div>
+                  </div> -->
+                  
                   <a href="meeting-details.html"><h4>Higher Education Conference</h4></a>
                   <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
                 </div>
@@ -379,7 +383,7 @@ https://templatemo.com/tm-569-edu-meeting
       <div class="row">
         <div class="col-lg-12">
           <div class="section-heading">
-            <h2>Our Popular Courses</h2>
+            <h2>Our Top Students</h2>
           </div>
         </div>
         <div class="col-lg-12">
@@ -775,31 +779,31 @@ https://templatemo.com/tm-569-edu-meeting
 
         };
 
-        var checkSection = function checkSection() {
-          $('.section').each(function () {
-            var
-            $this = $(this),
-            topEdge = $this.offset().top - 80,
-            bottomEdge = topEdge + $this.height(),
-            wScroll = $(window).scrollTop();
-            if (topEdge < wScroll && bottomEdge > wScroll) {
-              var
-              currentId = $this.data('section'),
-              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-              reqLink.closest('li').addClass('active').
-              siblings().removeClass('active');
-            }
-          });
-        };
+        // var checkSection = function checkSection() {
+        //   $('.section').each(function () {
+        //     var
+        //     $this = $(this),
+        //     topEdge = $this.offset().top - 80,
+        //     bottomEdge = topEdge + $this.height(),
+        //     wScroll = $(window).scrollTop();
+        //     if (topEdge < wScroll && bottomEdge > wScroll) {
+        //       var
+        //       currentId = $this.data('section'),
+        //       reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+        //       reqLink.closest('li').addClass('active').
+        //       siblings().removeClass('active');
+        //     }
+        //   });
+        // };
 
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-          e.preventDefault();
-          showSection($(this).attr('href'), true);
-        });
+        // $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+        //   e.preventDefault();
+        //   showSection($(this).attr('href'), true);
+        // });
 
-        $(window).scroll(function () {
-          checkSection();
-        });
+        // $(window).scroll(function () {
+        //   checkSection();
+        // });
     </script>
 </body>
 

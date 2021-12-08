@@ -291,7 +291,7 @@ header
 .header-area .main-nav .logo {
   line-height: 100px;
   color: #fff;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -979,12 +979,12 @@ section.upcoming-meetings .categories .main-button-red a {
   border-bottom-left-radius: 20px;
 }
 
-.meeting-item .down-content .date {
+/* .meeting-item .down-content .date {
   float: left;
   text-align: center;
   display: inline-block;
   margin-right: 20px;
-}
+} */
 
 .meeting-item .down-content .date h6 {
   font-size: 13px;
@@ -1001,16 +1001,17 @@ section.upcoming-meetings .categories .main-button-red a {
 }
 
 .meeting-item .down-content h4 {
-  font-size: 18px;
-  color: #1f272b;
+  font-size: 20px;
+  color: #0ca2ec;
   font-weight: 600;
   display: inline-block;
   margin-bottom: 15px;
 }
 
 .meeting-item .down-content p {
-  margin-left: 50px;
+  /* margin-left: 50px; */
   color: #1f272b;
+  text-align:  center;
   font-size: 14px;
 }
 
