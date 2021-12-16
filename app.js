@@ -18,6 +18,7 @@ var commentRouter = require("./routes/comments");
 var contactsRouter = require("./routes/contacts");
 var coursesRouter = require("./routes/courses");
 var pagesRouter = require("./routes/pages")
+var galleriesRouter = require("./routes/galleries")
 const request = require("request");
 
 
@@ -101,6 +102,7 @@ app.use("/posts", commentRouter);
 app.use("/contacts", contactsRouter);
 app.use("/courses", coursesRouter);
 app.use("/pages", pagesRouter);
+app.use("/galleries", galleriesRouter);
 
 
 // catch 404 and forward to error handler
