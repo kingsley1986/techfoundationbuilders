@@ -85,7 +85,7 @@ router.get("/:id/comments", async (req, res) => {
     .exec(function (error, post) {
       res.render("posts/show", {
         post: post,
-        // layout: false,
+        layout: false,
       })
     });
 });

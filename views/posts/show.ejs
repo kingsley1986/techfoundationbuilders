@@ -48,13 +48,15 @@
                     <div class="comment user-comment">
                         <div class="info">
                             <a href="#"><%= item.name %></a>
-                            <span><%= moment(item.createdAt).fromNow(); %></span>
                         </div>
                         <a class="avatar" href="#">
-                            <img src="http://i63.tinypic.com/2r3ec1t.png" width="35" alt="Profile Avatar" title="Amanda Quick" />
+                            <span><%= moment(item.createdAt).fromNow(); %></span>
+
+                            <!-- <img src="http://i63.tinypic.com/2r3ec1t.png" width="35" alt="Profile Avatar" title="Amanda Quick" /> -->
                         </a>
                         <p><%= item.description %></p>
                     </div>
+                    <hr>
                 <% });%> 
             </section>      
         </body>
