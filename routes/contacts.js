@@ -33,8 +33,10 @@ router.post("/send", async (req, res) => {
       				<ul>
           				<li><h1>Name: ${req.body.sender}</h1></li>
           				<li>Email: ${req.body.email}</li>
+                  <li>Phone: ${req.body.phone}</li>
+                  <li>Subject: ${req.body.subject}</li>
       				</ul>
-      				<h3>Purpose</h3>
+      				<h3>Message</h3>
 					  <p>Request: ${req.body.message}</p>
 					  `;
 
