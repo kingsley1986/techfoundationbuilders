@@ -48,14 +48,14 @@ try {
 app.use(expressLayouts);
 
 
-var reqTimer = setTimeout(function wakeUp() {
-	request("https://techfoundation.herokuapp.com/", function () {
-		console.log("WAKE UP DYNO");
-	});
-	return (reqTimer = setTimeout(wakeUp, 221000));
-	console.log(wakeUp);
-	console.log(reqTimer);
-}, 1500000);
+// var reqTimer = setTimeout(function wakeUp() {
+// 	request("https://techfoundation.herokuapp.com/", function () {
+// 		console.log("WAKE UP DYNO");
+// 	});
+// 	return (reqTimer = setTimeout(wakeUp, 221000));
+// 	console.log(wakeUp);
+// 	console.log(reqTimer);
+// }, 1500000);
 
 
 
