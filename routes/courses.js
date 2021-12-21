@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Course = require("../models/course");
-const mongoose = require('mongoose')
-
-
+const mongoose = require("mongoose");
 
 // Get all Blog posts
 
@@ -15,7 +13,7 @@ router.get("/", async (req, res) => {
     } else {
       res.render("courses/index", {
         courses: courses,
-        layout  : false,
+        layout: false,
       });
     }
   });
@@ -36,13 +34,11 @@ router.post("/create", async (req, res, next) => {
   try {
     const newCourse = await course.save();
     res.redirect("/courses");
-  } catch(error) {
-    console.log(error)
-        renderNewPage(res, course, true);
+  } catch (error) {
+    console.log(error);
+    renderNewPage(res, course, true);
   }
 });
-
-
 
 router.get("/:id/edit", async (req, res, next) => {
   Course.findById(req.params.id, function (err, course) {
@@ -60,9 +56,6 @@ router.get("/:id/edit", async (req, res, next) => {
 
 router.post("/:id/update", async (req, res, next) => {
   Course.findById(req.params.id, function (err, course) {
-  
-   
-
     if (req.body.title && req.body.url && req.body.description) {
       let course = {};
       course.title = req.body.title;
@@ -83,25 +76,21 @@ router.post("/:id/update", async (req, res, next) => {
   });
 });
 
-
 router.get("/:id/delete", async (req, res) => {
-  Course.findById(req.params.id, function (err, course) {    
+  Course.findById(req.params.id, function (err, course) {
     const ObjectId = mongoose.Types.ObjectId;
 
     let query = { _id: new ObjectId(req.params.id) };
-      Course.deleteOne(query, function (err) {
-        if (err) {
-            console.log(err);
-            res.redirect("back")
-          }else {
-            res.redirect("/courses")
-        }
-      });
-    }); 
+    Course.deleteOne(query, function (err) {
+      if (err) {
+        console.log(err);
+        res.redirect("back");
+      } else {
+        res.redirect("/courses");
+      }
+    });
+  });
 });
-
-
-
 
 //Handles the redirects
 async function renderNewPage(res, course, hasError = false) {
@@ -116,7 +105,5 @@ async function renderNewPage(res, course, hasError = false) {
     res.redirect("/courses");
   }
 }
-
-
 
 module.exports = router;
