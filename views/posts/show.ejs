@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <title>Blog</title>
 </head>
@@ -50,16 +52,23 @@
                         <div class="wrap">
                             <h2>Please leave a comment:</h2>
                                 <div class="commentform">
+                                            <div style="background-color: white; color: green; font-size: 16px; display:none;" id="success-delivey-message">Your
+                                                request was successful</div>
+                                                
+
                                     <form action="/posts/<%=post._id%>/comment" method="post" id="commentform">
+                                        <div id="post-id" style="display: none" ><%= post.id %></div>
                                         <div class="field small">
                                             <input id="name" type="text" name="name" placeholder="Your name">
                                             <label for="name">Your name</label>
+                                            <div id="name-error"></div>
                                         </div>
                                        
 
                                         <div class="field large">
                                             <textarea id="comment" name="description" placeholder="Your comment"></textarea>
                                             <label for="comment">Your comment</label>
+                                            <div id="message-error"></div>
                                         </div>
                                         
                                         <!-- <div class="field small">
@@ -68,7 +77,8 @@
                                         <div class="field small">
                                             <div class="text-center">
                                                 <div class="g-recaptcha" data-sitekey="6LdYgEUdAAAAAG9b9WcyjDrokGw1HfzbCKlJ2FgI"></div>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <div id="recaptcha-error"></div>
+                                                <button type="submit" class="btn btn-primary" id="make-comment">Submit</button>
                                             </div>
                                         </div>
                                         
@@ -79,213 +89,33 @@
 
 
                         <section class="comment-section">
-                            <div class="pments" ><% post.comments.forEach(item => { %>
-                                <div class="comment user-comment">
-                                        <div class="info">
-                                            <a href="#"><%= item.name %></a>
+                            <div id="commnent-counter"><%=post.comments.length%></div>
+                            <div class="pments"><% post.comments.forEach(item => { %>
+                                <div id="all-comments">  </div>
+                                    <div class="row"  >
+                                        <div class="comments-body">
+                                            <div class="comments">
+                                                <div class="info">
+                                                    <a class="info" href="#"><%= item.name %></a>
+                                                </div>
+                                                <a class="avatar" href="#">
+                                                    <span><%= moment(item.createdAt).fromNow(); %></span>
+                                                </a>
+                                                <p class="lists"><%= item.description %></p>
+                                            </div>
                                         </div>
-                                        <a class="avatar" href="#">
-                                            <span><%= moment(item.createdAt).fromNow(); %></span>
-                                        </a>
-                                        <p><%= item.description %></p>
                                     </div>
-                                <hr>
-                            <% });%> 
+                                </div>
+                            </div>
+                            <hr>
+                            <% });%>                            
                         </section>         
                     </div>
         </section>
-        
+            <script src="/javascripts/post_comment.js"></script>
+
 </body>
+    <link rel="stylesheet" href="/stylesheets/posts-comments.css">
 
-<style>
-
-/* comment starts here  */
-
-* {
-	 box-sizing: border-box;
-}
- .wrap {
-	 width: 640px;
-	 margin: 50px auto;
-}
- .field {
-	 position: relative;
-	 margin-bottom: 10px;
-}
- .field input, .field textarea {
-	 width: 100%;
-	 display: block;
-	 outline: none;
-	 padding: 5px;
-}
- .field input:focus, .field textarea:focus {
-	 border: 2px solid #eb7b03;
-}
- .field input:focus + label, .field textarea:focus + label {
-	 display: block;
-}
- .field textarea {
-	 height: 60px;
-}
- .field label {
-	 width: 100%;
-	 background-color: #eb7b03;
-	 display: block;
-	 color: #fff;
-	 padding: 3px;
-	 font-size: 12px;
-	 font-weight: 300;
-	 display: none;
-}
- h2 {
-	 font-weight: 300;
-}
- .small {
-	 width: 32%;
-	 float: left;
-	 margin-left: 2%;
-}
- .small:first-child {
-	 margin-left: 0%;
-}
- .large {
-	 float: left;
-	 width: 100%;
-}
- ::-webkit-input-placeholder {
-	 font-weight: 300;
-}
- :-moz-placeholder {
-	/* Firefox 18- */
-	 font-weight: 300;
-}
- ::-moz-placeholder {
-	/* Firefox 19+ */
-	 font-weight: 300;
-}
- :-ms-input-placeholder {
-	 font-weight: 300;
-}
- 
-/* comment ends here  */
-
-
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        padding: 0;
-        margin: 0;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .mt-5 {
-        margin-top: 5rem;
-    }
-
-    .our-blog {
-        background-color: #f8f9fa;
-        padding: 100px 0;
-    }
-
-    .container {
-        /* max-width: 960px; */
-        margin: 0 auto;
-
-    }
-
-
-    .row{
-    justify-content: center;
-    flex-wrap: wrap;
-	
-}
-
-    .text-center {
-        text-align: center;
-        font-size: 18px;
-    }
-
-    .text-center h2 {
-        font-weight: 500;
-        font-size: 1.6em;
-    }
-
-    .text-center h2 span {
-        font-weight: 800;
-    }
-
-    .text-center p {
-        max-width: 500px;
-        margin: 0 auto;
-        color: #000000;
-        line-height: 1.5;
-        font-size: 1.1em;
-    }
-
-    .col {
-        width: 33.3333333%;
-        overflow: hidden;
-        padding: 15px;
-    }
-
-    .col .card {
-        width: 100%;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-    }
-
-    .col img {
-        width: 100%;
-        height: auto;
-        border: 0;
-    }
-
-    .col .card-body {
-        padding: 0 15px 15px 15px;
-        background-color: #fff;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-    }
-
-    .card-body h5 {
-        font-size: 24px;
-        margin: 7px 0;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        transition: transform 0.3s ease;
-    }
-
-    .card p {
-        color: #000000;
-        padding-top: 10px;
-    }
-
-    .card-body .date-author span {
-        color: #e74c3c;
-    }
-
-    .card-body h5 a {
-        color: #222;
-    }
-
-    @media(min-width: 577px) and (max-width: 768px) {
-        .col {
-            width: 50%;
-        }
-    }
-
-    @media(max-width: 576px) {
-        .col {
-            width: 100%;
-        }
-    }
-</style>
 
 </html>
