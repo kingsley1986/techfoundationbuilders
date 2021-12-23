@@ -125,7 +125,7 @@ https://templatemo.com/tm-569-edu-meeting
           <div class="owl-service-item owl-carousel">
 
             <% courses.forEach(function(course) { %>
-              <div class="item">
+              <div class="item" style="padding-top: 15px">
                 <div class="icon">
                   <img
                   src="<%= course.logo %>"
@@ -133,7 +133,7 @@ https://templatemo.com/tm-569-edu-meeting
                 </div>
                 <div class="down-content">
                   <h4><%= course.title%></h4>
-                  <p><%= course.description.substring(0, 110);%></p>
+                  <p id="read-more" class="descripton"><%= course.description.substring(0, 90);%></p>
                 </div>
               </div>
 
@@ -753,7 +753,7 @@ https://templatemo.com/tm-569-edu-meeting
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
     <script src="/javascripts/jquery.min.js"></script>
-    <script src="/javascripts/bootstrap.bundle.min.js"></script>
+    <!-- <script src="/javascripts/bootstrap.bundle.min.js"></script> -->
 
     <script src="javascripts/isotope.min.js"></script>
     <script src="javascripts/owl-carousel.js"></script>
