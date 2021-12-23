@@ -44,12 +44,12 @@ const upload = multer({
 
 router.get("/", async (req, res) => {
   Course.find(function (err, courses) {
-    console.log(courses);
     if (err) {
       console.log(err);
     } else {
       res.render("courses/index", {
         courses: courses,
+        user: req.user,
         layout: false,
       });
     }
