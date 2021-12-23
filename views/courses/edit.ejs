@@ -6,7 +6,7 @@
     <title>Edit Form</title>
 </head>
 <body>
-    <form action="/courses/<%=course.id%>/update" method="POST">
+    <form action="/courses/<%=course.id%>/update" method="POST" enctype="multipart/form-data">
         <%- include('_form_fields') %>
         <input type="submit" value="Update" />
     </form>

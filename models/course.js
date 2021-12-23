@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
-// const ObjectId = Schema.ObjectId;
+const courseImageBasePath = "uploads/courseImages";
+const path = require("path");
+require("dotenv").config();
+const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
-const courseSchema = new mongoose.Schema({
+const coursechema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -11,11 +14,10 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  url: {
+  logo: {
     type: String,
     required: true,
   },
-
   createdAt: {
     type: Date,
     required: true,
@@ -23,4 +25,5 @@ const courseSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Course", courseSchema);
+module.exports = mongoose.model("Course", coursechema);
+module.exports.courseImageBasePath = courseImageBasePath;
