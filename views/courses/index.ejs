@@ -1,24 +1,25 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Courses</title>
+</head>
 <%- include('../partials/header.ejs') %>
-
-<main role="main">
-  <ul class="flexgrid columns-news">
-    <% courses.forEach(course => { %>
-    <li>
-      <a href="/courses/<%=course.id%>">
-        <span class="grid-number"><%=course.title %></span>
-        <figure class="gallery-image">
-          <img
-          
-            src="<%= course.logo %>"
-          />
-          <figcaption>
-            <h2 class="post-descr"><%= course.description %></h2>
-          </figcaption>
-        </figure>
-      </a>
-      <a href="/courses/<%=course.id%>/edit">Edit</a>
-      <a href="/courses/<%=course.id%>/delete">Delete</a>
-    </li>
-    <% });%>
-  </ul>
-</main>
+<body>
+	
+	<div class="container">
+		<% courses.forEach(course=> { %>
+			<div class="course-body" style="padding-top: 310px"></div>
+				<div class="row  col-sm-8">
+					<div class=""><%=course.title %></div>
+					<img src="<%= course.logo %>" />
+					<h2 class="post-descr"><%= course.description %></h2>
+					<a href="/courses/<%=course.id%>/edit">Edit</a>
+					<a href="/courses/<%=course.id%>/delete">Delete</a>
+				</div>
+			</div>
+		<% });%>		
+	</div>
+</body>
+</html>
