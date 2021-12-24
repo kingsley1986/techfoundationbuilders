@@ -1,7 +1,20 @@
 (function ($) {
-  //   document.querySelectorAll("#read-more").forEach((slide) => {
-  //     slide.innerHTML.substring(0, 3);
-  //   });
+  document.querySelectorAll("#read-more").forEach((slide) => {
+    var changer = true;
+    var notSubbed = (slide.innerHTML = slide.innerHTML + "     ...Read Less");
+    var subbed = (slide.innerHTML =
+      slide.innerHTML.substring(0, 82) + "... Read More");
+
+    slide.addEventListener("click", function () {
+      if (changer === true) {
+        changer = false;
+        return (slide.innerHTML = notSubbed);
+      } else if (changer === false) {
+        changer = true;
+        return (slide.innerHTML = subbed);
+      }
+    });
+  });
 
   ("use strict");
 
