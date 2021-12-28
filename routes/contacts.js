@@ -23,12 +23,10 @@ router.post("/send", async (req, res) => {
     const { success } = response.data;
 
     if (success && req.body.sender && req.body.email && req.body.message) {
-        try {
+      try {
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-        
-      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-      const output = `
+        const output = `
       				<h3>Contact Details </h3>
       				<ul>
           				<li><h1>Name: ${req.body.sender}</h1></li>
@@ -40,20 +38,18 @@ router.post("/send", async (req, res) => {
 					  <p>Request: ${req.body.message}</p>
 					  `;
 
-      const msg = {
-        to: "chukwumakingsley1@gmail.com",
-        from: "chukwumakingsley1@gmail.com",
-        subject: "requested",
-        text: output,
-        html: output,
-      };
-      sgMail.send(msg);
-      res.json(msg);
-    }catch(error) {
-        
+        const msg = {
+          to: "techfoundationbuilders@gmail.com",
+          from: "techfoundationbuilders@gmail.com",
+          subject: "requested",
+          text: output,
+          html: output,
+        };
+        sgMail.send(msg);
+        res.json(msg);
+      } catch (error) {
         console.log(error);
-    }
-
+      }
     } else {
       console.log("check body, name or success");
       res.json(msg);
