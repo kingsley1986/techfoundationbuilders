@@ -70,12 +70,14 @@
                       <input type="text" placeholder="Your Name" id="name-input" name="sender"/>
                     </div>
                     <div style="color: red;" id="name-error"></div>
+                    
                   </div>  
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single-input-field">
                       <input type="email" placeholder="E-mail" name="email" id="email-input" required/>
                     </div>
                     <div style="color: red;" id="email-error"></div>
+                    <div style="color: red;" id="email-error-validation"></div>
                   </div>                              
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single-input-field">
@@ -134,87 +136,138 @@ $('#send-contact').on('click', function (event) {
     var phone = document.getElementById("phone-input").value;
     var subject = document.getElementById("subject-input").value;
     var response = grecaptcha.getResponse();
-    
-    var name_passed = false
-    var email_passed = false
-    var message_passed = false
-    var phone_passed = false
-    var subject_passed = false
-    var response_passed = false
+   var name_passed = false;
+  var email_passed = false;
+  var email_validation_passed = false;
+  var message_passed = false;
+  var phone_passed = false;
+  var subject_passed = false;
+  var response_passed = false;
 
+  atpos = email.indexOf("@");
+  dotpos = email.lastIndexOf(".");
 
-    if(name == ""){
+  // var all_passed = false;
+  // if (
+  //   name === "" &&
+  //   email === "" &&
+  //   phone === "" &&
+  //   subject === "" &&
+  //   message === "" &&
+  //   response === ""
+  // ) {
+  //   var name_dom = document.getElementById("name-error");
 
-        var the_value = document.getElementById("name-error")
+  //   name_dom.innerHTML = "Please enter your name";
 
-        the_value.innerHTML = "Please enter your name"
-        name_passed = true
-   
-    }else if (email == "") {
+  //   var email_dom = document.getElementById("email-error");
 
-      var the_value = document.getElementById("email-error")
+  //   email_dom.innerHTML = "Please enter your email";
 
-        the_value.innerHTML == "" ? the_value.innerHTML = "Please enter your email address" : the_value.innerHTML = ""
-      email_passed = true
+  //   var phone_dom = document.getElementById("phone-error");
 
-      }else if (phone == "") {
-        var the_value = document.getElementById("phone-error")
-  
-        the_value.innerHTML == "" ? the_value.innerHTML = "Please enter a pohoe number" : the_value.innerHTML = "" 
-        phone_passed = true
-  
-      }
-      else if (subject == "") {
-        var the_value = document.getElementById("subject-error")
-  
-        the_value.innerHTML == "" ? the_value.innerHTML = "Please enter a subject" : the_value.innerHTML = "" 
-        subject_passed = true
-  
-      }else if (message == "") {
+  //   phone_dom.innerHTML = "Please enter your number";
 
-      var the_value = document.getElementById("message-error")
+  //   var subject_dom = document.getElementById("subject-error");
 
-      the_value.innerHTML == "" ? the_value.innerHTML = "Please enter a message " : the_value.innerHTML = ""
-      message_passed = true
+  //   subject_dom.innerHTML = "Please enter your subject";
 
-    }else if (response == "") {
-      var the_value = document.getElementById("recaptcha-error")
+  //   var message_dom = document.getElementById("message-error");
 
-      the_value.innerHTML == "" ? the_value.innerHTML = "Please verify that you are not a robot" : the_value.innerHTML = "" 
-      response_passed = true
+  //   message_dom.innerHTML = "Please enter your message";
 
-    }
-    console.log(name_passed)
-    if(name_passed != true) {
-      var the_value = document.getElementById("name-error")
+  //   var recaptcha_dom = document.getElementById("recaptcha-error");
 
-      the_value.innerHTML = ""
-    }
-    if (email_passed != true) {
-      var the_value = document.getElementById("email-error")
+  //   recaptcha_dom.innerHTML = "Please select recaptcha";
+  //   return (
+  //     name_dom.innerHTML,
+  //     email_dom.innerHTML,
+  //     phone_dom.innerHTML,
+  //     subject_dom.innerHTML,
+  //     message_dom.innerHTML,
+  //     recaptcha_dom.innerHTML,
+  //     (all_passed = true)
+  //   );
+  // }
 
-      the_value.innerHTML = ""
-    }
-    if (message_passed != true) {
-      var the_value = document.getElementById("message-error")
+  if (name == "") {
+    var the_value = document.getElementById("name-error");
 
-      the_value.innerHTML = ""
-    }
-    if(phone_passed != true) {
-      var the_value = document.getElementById("phone-error")
+    the_value.innerHTML = "Please enter your name";
+    name_passed = true;
+  } else {
+    var the_value = document.getElementById("name-error");
 
-      the_value.innerHTML = ""
-    }
-    if(subject_passed != true) {
-      var the_value = document.getElementById("subject-error")
+    the_value.innerHTML = "";
+  }
 
-      the_value.innerHTML = ""
-    }
-    if (response_passed != true) {
-      var the_value = document.getElementById("recaptcha-error")
+  if (email == "") {
+    var the_value = document.getElementById("email-error");
 
-      the_value.innerHTML = ""
-    }
+    the_value.innerHTML = "Please enter your email";
+    email_passed = true;
+  } else if (atpos < 1 || dotpos - atpos < 2) {
+    var the_value = document.getElementById("email-error-validation");
+
+    the_value.innerHTML = "Please enter a valid email address";
+    email_validation_passed = true;
+  } else {
+    var the_value = document.getElementById("email-error-validation");
+    the_value.innerHTML = "";
+  }
+
+  if (email != "") {
+    var the_value = document.getElementById("email-error");
+    the_value.innerHTML = "";
+  }
+
+  var found = phone.search(
+    /^(\+{1}\d{2,3}\s?[(]{1}\d{1,3}[)]{1}\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}$/
+  );
+  if (found > -1 && phone.length > 9) {
+    var the_value = document.getElementById("phone-error");
+    the_value.innerHTML = "";
+  } else {
+    var the_value = document.getElementById("phone-error");
+
+    the_value.innerHTML = "Please enter a valid phone number";
+
+    phone_passed = true;
+  }
+
+  if (subject == "") {
+    var the_value = document.getElementById("subject-error");
+
+    the_value.innerHTML = "Please enter your subject";
+    subject_passed = true;
+  } else {
+    var the_value = document.getElementById("subject-error");
+
+    the_value.innerHTML = "";
+  }
+
+  if (message == "") {
+    var the_value = document.getElementById("message-error");
+
+    the_value.innerHTML = "Please enter your Message";
+    message_passed = true;
+  } else {
+    var the_value = document.getElementById("message-error");
+
+    the_value.innerHTML = "";
+  }
+
+  if (response == "") {
+    var the_value = document.getElementById("recaptcha-error");
+
+    the_value.innerHTML = "Please enter your recaptcha";
+    response_passed = true;
+  } else {
+    var the_value = document.getElementById("recaptcha-error");
+
+    the_value.innerHTML = "";
+  }
+
     if(name_passed != true && email_passed != true && message_passed != true && phone_passed != true  && subject_passed != true && response_passed != true) {
 
         var f = $("#send-request");
