@@ -4,6 +4,7 @@ const Post = require("../models/post");
 const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
+const mongoose = require("mongoose");
 // const sharp = require("sharp");
 
 var AWS = require("aws-sdk");
@@ -70,9 +71,9 @@ router.post("/create", upload.single("cover"), async (req, res, next) => {
   try {
     const newPost = await post.save();
     res.redirect("/posts");
-  } catch(error) {
-    console.log(error)
-        renderNewPage(res, post, true);
+  } catch (error) {
+    console.log(error);
+    renderNewPage(res, post, true);
   }
 });
 
@@ -85,11 +86,11 @@ router.get("/:id/comments", async (req, res) => {
     .exec(function (error, post) {
       res.render("posts/show", {
         post: post,
+        user: req.user,
         layout: false,
-      })
+      });
     });
 });
-
 
 router.get("/:id/edit", async (req, res, next) => {
   Post.findById(req.params.id, function (err, post) {
@@ -160,7 +161,6 @@ router.post("/edit/:id", upload.single("cover"), async (req, res, next) => {
   });
 });
 
-
 router.get("/:id/delete", async (req, res) => {
   console.log("this is splited", process.env.SPLITTED);
   Post.findById(req.params.id, function (err, post) {
@@ -198,9 +198,6 @@ router.get("/:id/delete", async (req, res) => {
   });
 });
 
-
-
-
 //Handles the redirects
 async function renderNewPage(res, post, hasError = false) {
   try {
@@ -214,7 +211,5 @@ async function renderNewPage(res, post, hasError = false) {
     res.redirect("/posts");
   }
 }
-
-
 
 module.exports = router;

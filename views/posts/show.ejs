@@ -45,12 +45,18 @@
                                         <%= post.description %>
                                     </p>
                                 </div>
+                                    <% if(user && user.email=="chukwumakingsley1@gmail.com" ) { %>
+                                        <div class="course_card_footer"><a class="nav-item" href="/posts/<%=post.id%>/delete">Delete</a><a class="nav-item"
+                                                href=href="/posts/<%=post.id%>/edit">Edit</a></div>
+                                        </div>
+                                        <% }%>
+
                             </div>
-                            
+                           
                         </div>
-                        
                         <div class="wrap">
                             <h2>Please leave a comment:</h2>
+
                                 <div class="commentform">
                                             <div style="background-color: white; color: green; font-size: 16px; display:none;" id="success-delivey-message">Your
                                                 request was successful</div>
