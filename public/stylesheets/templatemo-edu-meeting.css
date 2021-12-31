@@ -1368,13 +1368,13 @@ section.our-facts h2 {
 }
 
 .new-students {
-  margin-top: 45px;
+  /* margin-top: 45px; */
 }
 
 section.our-facts .video {
   text-align: center;
   margin-left: 70px;
-  background-image: url(../images/video-item-bg.jpg);
+  /* background-image: url(../images/video-item-bg.jpg); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
