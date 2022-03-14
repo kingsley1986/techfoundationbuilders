@@ -7,47 +7,43 @@ const fs = require("fs");
 const axios = require("axios");
 
 router.post("/:postId/comment", async (req, res) => {
-    const response_key = req.body["g-recaptcha-response"];
+  const response_key = req.body["g-recaptcha-response"];
 
   const post = await Post.findOne({ _id: req.params.postId });
+
   if (!req.body["g-recaptcha-response"]) {
-		return res.status(400).json({ error: "reCaptcha token is missing" });
-	}
-  
+    return res.status(400).json({ error: "reCaptcha token is missing" });
+  }
 
   try {
     const googleVerifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}
     &response=${req.body["g-recaptcha-response"]}`;
 
-		const response = await axios.post(googleVerifyUrl);
+    const response = await axios.post(googleVerifyUrl);
 
-		const { success } = response.data;
+    const { success } = response.data;
 
     if (success && req.body.description && req.body.name) {
       const comment = new Comment();
       comment.description = req.body.description;
       comment.name = req.body.name;
       comment.post = post._id;
-      
-        await comment.save();
 
-        post.comments.push(comment._id);
-        await post.save();
+      await comment.save();
 
-        
-      res.redirect("/posts/" + post._id + "/comments")
+      post.comments.push(comment._id);
+      await post.save();
+
+      res.redirect("/posts/" + post._id + "/comments");
     } else {
-        console.log("check body, name or success")
-        res.redirect("/posts/" + post._id + "/comments")
+      console.log("check body, name or success");
+      res.redirect("/posts/" + post._id + "/comments");
     }
   } catch (e) {
-    console.log(e)
-    res.redirect("/posts/" + post._id + "/comments")
+    console.log(e);
+    res.redirect("/posts/" + post._id + "/comments");
   }
 });
-
-
-
 
 router.delete("/comments/:postId/:commentId", async function (req, res) {
   try {
