@@ -327,6 +327,7 @@ header
 .background-header .logo,
 .background-header .main-nav .nav li a {
   color: #1e1e1e !important;
+  
 }
 
 .background-header .main-nav .nav li:hover a {
@@ -367,6 +368,7 @@ header
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  
 }
 
 .background-header .main-nav .logo {
@@ -771,7 +773,7 @@ banner
 
 .video-overlay {
   position: absolute;
-  background-color: rgba(31, 39, 43, 0.75);
+  background-color: #5f181866;
   top: 0;
   left: 0;
   bottom: 0;

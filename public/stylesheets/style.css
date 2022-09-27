@@ -25,5 +25,32 @@ a {
   div.row.grid-facts {
       display: grid !important;
       grid-template-columns: 300px 300px 300px 300px !important;
+      
     }
+
+    .youtube-videos {
+      display: grid !important;
+        grid-template-columns: 300px 300px 300px 300px !important;
+       
+      
+    }  
 }
+@media screen and (max-width: 800px) {
+  .youtube-videos {
+    margin-bottom: -1rem;
+    width: 560px;
+  }
+}
+
+
+/*** Section Title ***/
+.section-title {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+
+
+
+
