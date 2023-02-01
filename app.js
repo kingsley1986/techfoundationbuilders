@@ -19,6 +19,8 @@ var coursesRouter = require("./routes/courses");
 var pagesRouter = require("./routes/pages");
 var contactusRouter = require("./routes/contactus");
 var galleriesRouter = require("./routes/galleries");
+
+var registerRouter = require("./routes/registration");
 const request = require("request");
 
 require("dotenv").config();
@@ -98,6 +100,7 @@ app.use("/courses", coursesRouter);
 app.use("/pages", pagesRouter);
 app.use("/galleries", galleriesRouter);
 app.use("/contactus", contactusRouter);
+app.use("/registration", registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

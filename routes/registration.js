@@ -6,9 +6,11 @@ const axios = require("axios");
 
 const sgMail = require("@sendgrid/mail");
 
-router.post("/send", async (req, res) => {
-  const response_key = req.body["g-recaptcha-response"];
+router.post("/register", async (req, res) => {
 
+  console.log(req.body)
+  const response_key = req.body["g-recaptcha-response"];
+console.log(response_key, "Response")
   if (!req.body["g-recaptcha-response"]) {
     return res.status(400).json({ error: "reCaptcha token is missing" });
   }
@@ -18,21 +20,29 @@ router.post("/send", async (req, res) => {
         &response=${req.body["g-recaptcha-response"]}`;
 
     const response = await axios.post(googleVerifyUrl);
-    console.log(response);
+    // console.log(response);
 
     const { success } = response.data;
 
-    if (success && req.body.sender && req.body.email && req.body.message) {
+    if (success && req.body.email ) {
       try {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
         const output = `
       				<h3>Contact Details </h3>
       				<ul>
-          				<li><h1>Name: ${req.body.sender}</h1></li>
-          				<li>Email: ${req.body.email}</li>
-                  <li>Phone: ${req.body.phone}</li>
-                  <li>Subject: ${req.body.subject}</li>
+          				<li><h1>Parent Firstname: ${req.body.firstname}</h1></li>
+          				<li><h3>Parent Lastname</h3>: ${req.body.lastname}</li>
+                  <li>Country: ${req.body.country}</li>
+                   <li>State: ${req.body.state}</li>
+                    <li>Email: ${req.body.email}</li>
+                     <li>Phone: ${req.body.cellnumber}</li>
+                      <li>Child Fullname: ${req.body.childs_fullname}</li>
+                       <li>Child Age: ${req.body.child_age}</li>
+                        <li>Gender: ${req.body.gender}</li>
+                         <li>Grade: ${req.body.grade}</li>
+
+
       				</ul>
       				<h3>Message</h3>
 					  <p>Request: ${req.body.message}</p>
@@ -61,7 +71,7 @@ router.post("/send", async (req, res) => {
 });
 
 router.get("/new", async (req, res) => {
-  res.render("contacts/new");
+  res.render("register", {layout: false});
 });
 
 module.exports = router;

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>Registration</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/stylesheets/fontawesome.css">
+    <link rel="stylesheet" href="/stylesheets/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="/stylesheets/owl.css">
+    <link rel="stylesheet" href="/stylesheets/lightbox.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
+</head>
+
+<body>
+
+    <!-- Sub Header -->
+    <!-- <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+            <p>This is an educational <em>HTML CSS</em> template by TemplateMo website.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky" style="background-color: red;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/" class="logo" style="color: white">
+                            YAT Academy
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                            <li><a href="/pages/about">About Us</a></li>
+                            <li class="scroll-to-section"><a href="/galleries">Galleries</a></li>
+                            <li class="ha-sub">
+                                <a href="/posts">Blogs</a>
+                                <!-- <ul class="sub-menu">
+                                  <li><a href="meetings.html">Upcoming Meetings</a></li>
+                                  <li><a href="meeting-details.html">Meeting Details</a></li>
+                              </ul> -->
+                            </li>
+                            <li class="scroll-to-section"><a href="/courses">Courses</a></li>
+                            <li class="scroll-to-section"><a href="/contactus">Contact Us</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="form-body" style="padding-top: 4rem;">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Parents Details</h3>
+                        <p>Fill in the data below.</p>
+                        <form action="/registration/register" class="requires-validation" novalidate method="POST">
+    
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="firstname" placeholder="Parent first name" required>
+                                <div class="valid-feedback">firstname field is valid!</div>
+                                <div class="invalid-feedback">firstname field cannot be blank!</div>
+                            </div>
+    
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="lastname" placeholder="Parent Last name" required>
+                                <div class="valid-feedback">lastname field is valid!</div>
+                                <div class="invalid-feedback">lastname field cannot be blank!</div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="email" placeholder="email address" required>
+                                <div class="valid-feedback">Email field is valid!</div>
+                                <div class="invalid-feedback">Email field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="country" placeholder="Country" required>
+                                <div class="valid-feedback">country field is valid!</div>
+                                <div class="invalid-feedback">country field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="state" placeholder="State/Province" required>
+                                <div class="valid-feedback">state/province field is valid!</div>
+                                <div class="invalid-feedback">state/province field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" id="phonenumber" type="text" name="cellnumber" placeholder="Phone Number" required>
+                                <div class="valid-feedback">phone Number field is valid!</div>
+                                <div class="invalid-feedback">phone Number field cannot be blank!</div>
+                            </div>
+                    
+                            <br/>
+                            
+                            <h3>Learner's Details</h3>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="childs_fullname" placeholder="Child's Full name" required>
+                                <div class="valid-feedback">fullname field is valid!</div>
+                                <div class="invalid-feedback">fullname field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="child_age" placeholder="Childs age" required>
+                                <div class="valid-feedback">age field is valid!</div>
+                                <div class="invalid-feedback">age field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="grade" placeholder="Grade" required>
+                                <div class="valid-feedback">Grade field is valid!</div>
+                                <div class="invalid-feedback">Grade field cannot be blank!</div>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <label class="mb-3 mr-1" for="gender">Gender: </label>
+    
+                                <input type="radio" class="btn-check" name="gender"  value="Male" id="male" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+    
+                                <input type="radio" class="btn-check" name="gender"  value="Female" id="female" autocomplete="off" required>
+                                <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+    
+                                <div class="valid-feedback mv-up">You selected a gender!</div>
+                                <div class="invalid-feedback mv-up">Please select a gender!</div>
+                            </div>
+                            <br />
+
+                            <div class="col-md-12 message-input">
+                                <div class="single-input-field">
+                                    <textarea placeholder="Leave a comment" name="message" id="message-input"></textarea>
+                                </div>
+                                <div style="color: red;" id="message-error"></div>
+                                <br/>
+    
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label">I confirm that all data are correct</label>
+                                <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                            </div>
+
+                            <br />
+                            
+                            <div class="g-recaptcha" data-sitekey="6LdYgEUdAAAAAG9b9WcyjDrokGw1HfzbCKlJ2FgI"></div>
+                            
+                            <div style="color: red;" id="recaptcha-error"></div>
+                            <br />
+
+
+                            <div id="messageBox" style="display:none;">
+                                <p id="message" style="color:green; font-size: 20px"></p>
+                                <button id="closeMessageBtn">Close</button>
+                            </div>
+    
+    
+                            <div class="form-button mt-3">
+                                <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style> 
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+*, body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    height: 100%;
+    background-color: #152733;
+    /* overflow: hidden; */
+}
+
+
+.form-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+}
+
+.form-holder .form-content {
+    position: relative;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 60px;
+}
+
+.form-content .form-items {
+    border: 3px solid #fff;
+    padding: 40px;
+    display: inline-block;
+    width: 60%;
+    min-width: 27rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: left;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.form-content h3 {
+    color: #fff;
+    text-align: left;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-content h3.form-title {
+    margin-bottom: 30px;
+}
+
+.form-content p {
+    color: #fff;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+
+.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+    color: #fff;
+}
+
+.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
+    width: 100%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+
+.btn-primary{
+    background-color: #6C757D;
+    outline: none;
+    border: 0px;
+     box-shadow: none;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+    background-color: #495056;
+    outline: none !important;
+    border: none !important;
+     box-shadow: none;
+}
+
+.form-content textarea {
+    position: static !important;
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: #8D8D8D;
+    outline: none;
+    resize: none;
+    height: 120px;
+    -webkit-transition: none;
+    transition: none;
+    margin-bottom: 14px;
+}
+
+.form-content textarea:hover, .form-content textarea:focus {
+    border: 0;
+    background-color: #ebeff8;
+    color: #8D8D8D;
+}
+
+.mv-up{
+    margin-top: -9px !important;
+    margin-bottom: 8px !important;
+}
+
+.invalid-feedback{
+    color: #ff606e;
+}
+
+.valid-feedback{
+   color: #2acc80;
+}
+    </style>
+</div>
+    <script src="/javascripts/jquery.min.js"></script>
+
+
+    <script src="/javascripts/isotope.min.js"></script>
+    <script src="/javascripts/owl-carousel.js"></script>
+    <script src="/javascripts/lightbox.js"></script>
+    <script src="/javascripts/tabs.js"></script>
+    <script src="/javascripts/video.js"></script>
+    <script src="/javascripts/slick-slider.js"></script>
+    <!-- <script src="javascripts/custom.js"></script> -->
+    <script>
+        //according to loftblog tut
+        if ($('.menu-trigger').length) {
+            $(".menu-trigger").on('click', function () {
+                $(this).toggleClass('active');
+                $('.header-area .nav').slideToggle(200);
+            });
+        }
+
+
+        // Menu elevator animation
+        $('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    var width = $(window).width();
+                    if (width < 991) {
+                        $('.menu-trigger').removeClass('active');
+                        $('.header-area .nav').slideUp(200);
+                    }
+                    $('html,body').animate({
+                        scrollTop: (target.offset().top) - 80
+                    }, 700);
+                    return false;
+                }
+            }
+        });
+
+    // var checkSection = function checkSection() {
+    //   $('.section').each(function () {
+    //     var
+    //     $this = $(this),
+    //     topEdge = $this.offset().top - 80,
+    //     bottomEdge = topEdge + $this.height(),
+    //     wScroll = $(window).scrollTop();
+    //     if (topEdge < wScroll && bottomEdge > wScroll) {
+    //       var
+    //       currentId = $this.data('section'),
+    //       reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+    //       reqLink.closest('li').addClass('active').
+    //       siblings().removeClass('active');
+    //     }
+    //   });
+    // };
+
+    // $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+    //   e.preventDefault();
+    //   showSection($(this).attr('href'), true);
+    // });
+
+    // $(window).scroll(function () {
+    //   checkSection();
+    // });
+
+    // for registration form validation 
+
+//     (function () {
+// 'use strict'
+// const forms = document.querySelectorAll('.requires-validation')
+// var phone_number = document.getElementById("phonenumber").innerHTML
+
+// Array.from(forms)
+//   .forEach(function (form) {
+//     form.addEventListener('submit', function (event) {
+//       if (!form.checkValidity() || isNaN(phone_number)) {
+//         event.preventDefault()
+//         event.stopPropagation()
+//       }
+
+//       form.classList.add('was-validated')
+//     }, false)
+//   })
+// })()
+    // const form = document.querySelector('form');
+    // form.addEventListener('submit', (event) => {
+    //     event.preventDefault();
+
+    //     const firstName = form.elements.firstname.value;
+    //     const lastName = form.elements.lastname.value;
+    //     const country = form.elements.country.value;
+    //     const state = form.elements.state.value;
+    //     const cellNumber = form.elements.cellnumber.value;
+    //     const email = form.elements.email.value;
+    //     const fullName = form.elements.childs_fullname.value;
+    //     const gender = form.elements.gender.value;
+    //     const grade = form.elements.grade.value;
+    //     const child_age = form.elements.child_age.value;
+    //     const message = form.elements.message.value;
+    //     const recaptcha = document.getElementById('g-recaptcha-response').value;
+
+
+
+    //     if (!firstName || 
+    //         !lastName || 
+    //         !country || 
+    //         !state || 
+    //         !cellNumber || 
+    //         !email || 
+    //         !fullName || 
+    //         !gender || 
+    //         !grade || 
+    //         !child_age ||
+    //         !recaptcha
+    //         ) {
+             
+    //         return;
+    //     }
+
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('POST', '/registration/register');
+    //     xhr.setRequestHeader('Content-Type', 'application/json');
+    //     xhr.onload = () => {
+    //         if (xhr.status === 200) {
+    //             const response = JSON.parse(xhr.responseText);
+    //             if (response.success) {
+    //                 // redirect to another route
+    //                 window.location = '/success';
+    //             } else {
+    //                 // display error message
+    //             }
+    //         }
+    //     };
+    //     xhr.send(JSON.stringify({
+    //         firstName,
+    //         lastName,
+    //         country,
+    //         state,
+    //         cellNumber,
+    //         email,
+    //         fullName,
+    //         gender,
+    //         grade,
+    //         child_age,
+    //         message,
+    //         'g-recaptcha-response': recaptcha
+    //     }));
+    // });
+
+
+    // $(document).ready(function () {
+    //     $('.requires-validation').submit(function (event) {
+    //         if (this.checkValidity() === false) {
+    //             event.preventDefault();
+    //             event.stopPropagation();
+    //         }
+    //         this.classList.add('was-validated');
+
+    //         if (grecaptcha.getResponse().length == 0) {
+    //             event.preventDefault();
+    //             alert("Please check the reCAPTCHA checkbox.");
+    //         } else {
+    //             var formData = $(this).serialize();
+    //             $.ajax({
+    //                 type: 'POST',
+    //                 url: '/registration/register',
+    //                 data: formData + "&g-recaptcha-response=" + grecaptcha.getResponse(),
+    //                 success: function (data) {
+    //                     event.preventDefault();
+    //                     window.location = '/success';
+    //                 },
+    //                 error: function (data) {
+    //                     alert("An error occurred. Please try again later.");
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+
+
+
+    $(document).ready(function () {
+            $('form.requires-validation').submit(function (event) {
+                var recaptcha = $("#g-recaptcha-response").val();
+                const messageBox = document.getElementById('messageBox');
+                const closeMessageBtn = document.getElementById('closeMessageBtn');
+                const message = document.getElementById('message');
+                if (!this.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    var form = $(this);
+                    var formData = form.serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: "/registration/register",
+                        data: formData,
+                        success: function (response) {
+                            if (recaptcha) {
+                                grecaptcha.reset();
+                                // window.location.href = "/success";
+                                 message.innerHTML = 'Form submitted successfully';
+                                messageBox.style.display = 'block';
+                            } else {
+                                grecaptcha.reset();
+                                alert("Recaptcha failed. Please try again.");
+                            }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.error(textStatus, errorThrown);
+                        }
+                    });
+                }
+                this.classList.add('was-validated');
+            });
+
+            closeMessageBtn.addEventListener('click', function () {
+            messageBox.style.display = 'none';
+        });
+        });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+<!-- ***** Header Area End ***** -->
+
