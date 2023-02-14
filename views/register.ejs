@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/stylesheets/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="/stylesheets/owl.css">
     <link rel="stylesheet" href="/stylesheets/lightbox.css">
+    <link rel="stylesheet" href="/stylesheets/registration.css">
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!--
@@ -99,16 +101,16 @@ https://templatemo.com/tm-569-edu-meeting
                     <div class="form-items">
                         <h3>Parents Details</h3>
                         <p>Fill in the data below.</p>
-                        <form action="/registration/register" class="requires-validation" novalidate method="POST">
+                        <form action="/registration/register" id='cform' class="requires-validation" novalidate method="POST">
     
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="firstname" placeholder="Parent first name" required>
+                                <input class="form-control" id="firstName" type="text" name="firstname" placeholder="Parent first name" required>
                                 <div class="valid-feedback">firstname field is valid!</div>
                                 <div class="invalid-feedback">firstname field cannot be blank!</div>
                             </div>
     
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="lastname" placeholder="Parent Last name" required>
+                                <input class="form-control" id="lastName" type="text" name="lastname" placeholder="Parent Last name" required>
                                 <div class="valid-feedback">lastname field is valid!</div>
                                 <div class="invalid-feedback">lastname field cannot be blank!</div>
                             </div>
@@ -149,9 +151,13 @@ https://templatemo.com/tm-569-edu-meeting
                             </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="child_age" placeholder="Childs age" required>
-                                <div class="valid-feedback">age field is valid!</div>
+                                <input class="form-control" id="age" type="text" name="child_age" placeholder="Childs age" required>
+
+                                <!-- <div class="valid-feedback">age field is valid!</div> -->
                                 <div class="invalid-feedback">age field cannot be blank!</div>
+                                <p id="message" style="color: red; font-size:17px"></p>
+
+
                             </div>
 
                             <div class="col-md-12">
@@ -196,7 +202,7 @@ https://templatemo.com/tm-569-edu-meeting
 
 
                             <div id="messageBox" style="display:none;">
-                                <p id="message" style="color:green; font-size: 20px"></p>
+                                <p id="successmessage" style="color:green; font-size: 20px"></p>
                                 <button id="closeMessageBtn">Close</button>
                             </div>
     
@@ -210,158 +216,6 @@ https://templatemo.com/tm-569-edu-meeting
             </div>
         </div>
     </div>
-
-    <style> 
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-
-*, body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-html, body {
-    height: 100%;
-    background-color: #152733;
-    /* overflow: hidden; */
-}
-
-
-.form-holder {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-}
-
-.form-holder .form-content {
-    position: relative;
-    text-align: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-    padding: 60px;
-}
-
-.form-content .form-items {
-    border: 3px solid #fff;
-    padding: 40px;
-    display: inline-block;
-    width: 60%;
-    min-width: 27rem;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    text-align: left;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-
-.form-content h3 {
-    color: #fff;
-    text-align: left;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.form-content h3.form-title {
-    margin-bottom: 30px;
-}
-
-.form-content p {
-    color: #fff;
-    text-align: left;
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 20px;
-    margin-bottom: 30px;
-}
-
-
-.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
-    color: #fff;
-}
-
-.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
-    width: 100%;
-    padding: 9px 20px;
-    text-align: left;
-    border: 0;
-    outline: 0;
-    border-radius: 6px;
-    background-color: #fff;
-    font-size: 15px;
-    font-weight: 300;
-    color: #8D8D8D;
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    margin-top: 16px;
-}
-
-
-.btn-primary{
-    background-color: #6C757D;
-    outline: none;
-    border: 0px;
-     box-shadow: none;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
-    background-color: #495056;
-    outline: none !important;
-    border: none !important;
-     box-shadow: none;
-}
-
-.form-content textarea {
-    position: static !important;
-    width: 100%;
-    padding: 8px 20px;
-    border-radius: 6px;
-    text-align: left;
-    background-color: #fff;
-    border: 0;
-    font-size: 15px;
-    font-weight: 300;
-    color: #8D8D8D;
-    outline: none;
-    resize: none;
-    height: 120px;
-    -webkit-transition: none;
-    transition: none;
-    margin-bottom: 14px;
-}
-
-.form-content textarea:hover, .form-content textarea:focus {
-    border: 0;
-    background-color: #ebeff8;
-    color: #8D8D8D;
-}
-
-.mv-up{
-    margin-top: -9px !important;
-    margin-bottom: 8px !important;
-}
-
-.invalid-feedback{
-    color: #ff606e;
-}
-
-.valid-feedback{
-   color: #2acc80;
-}
-    </style>
 </div>
     <script src="/javascripts/jquery.min.js"></script>
 
@@ -371,228 +225,11 @@ html, body {
     <script src="/javascripts/lightbox.js"></script>
     <script src="/javascripts/tabs.js"></script>
     <script src="/javascripts/video.js"></script>
+    <script src="/javascripts/registration.js"></script>
+
     <script src="/javascripts/slick-slider.js"></script>
     <!-- <script src="javascripts/custom.js"></script> -->
-    <script>
-        //according to loftblog tut
-        if ($('.menu-trigger').length) {
-            $(".menu-trigger").on('click', function () {
-                $(this).toggleClass('active');
-                $('.header-area .nav').slideToggle(200);
-            });
-        }
 
-
-        // Menu elevator animation
-        $('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function () {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    var width = $(window).width();
-                    if (width < 991) {
-                        $('.menu-trigger').removeClass('active');
-                        $('.header-area .nav').slideUp(200);
-                    }
-                    $('html,body').animate({
-                        scrollTop: (target.offset().top) - 80
-                    }, 700);
-                    return false;
-                }
-            }
-        });
-
-    // var checkSection = function checkSection() {
-    //   $('.section').each(function () {
-    //     var
-    //     $this = $(this),
-    //     topEdge = $this.offset().top - 80,
-    //     bottomEdge = topEdge + $this.height(),
-    //     wScroll = $(window).scrollTop();
-    //     if (topEdge < wScroll && bottomEdge > wScroll) {
-    //       var
-    //       currentId = $this.data('section'),
-    //       reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-    //       reqLink.closest('li').addClass('active').
-    //       siblings().removeClass('active');
-    //     }
-    //   });
-    // };
-
-    // $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-    //   e.preventDefault();
-    //   showSection($(this).attr('href'), true);
-    // });
-
-    // $(window).scroll(function () {
-    //   checkSection();
-    // });
-
-    // for registration form validation 
-
-//     (function () {
-// 'use strict'
-// const forms = document.querySelectorAll('.requires-validation')
-// var phone_number = document.getElementById("phonenumber").innerHTML
-
-// Array.from(forms)
-//   .forEach(function (form) {
-//     form.addEventListener('submit', function (event) {
-//       if (!form.checkValidity() || isNaN(phone_number)) {
-//         event.preventDefault()
-//         event.stopPropagation()
-//       }
-
-//       form.classList.add('was-validated')
-//     }, false)
-//   })
-// })()
-    // const form = document.querySelector('form');
-    // form.addEventListener('submit', (event) => {
-    //     event.preventDefault();
-
-    //     const firstName = form.elements.firstname.value;
-    //     const lastName = form.elements.lastname.value;
-    //     const country = form.elements.country.value;
-    //     const state = form.elements.state.value;
-    //     const cellNumber = form.elements.cellnumber.value;
-    //     const email = form.elements.email.value;
-    //     const fullName = form.elements.childs_fullname.value;
-    //     const gender = form.elements.gender.value;
-    //     const grade = form.elements.grade.value;
-    //     const child_age = form.elements.child_age.value;
-    //     const message = form.elements.message.value;
-    //     const recaptcha = document.getElementById('g-recaptcha-response').value;
-
-
-
-    //     if (!firstName || 
-    //         !lastName || 
-    //         !country || 
-    //         !state || 
-    //         !cellNumber || 
-    //         !email || 
-    //         !fullName || 
-    //         !gender || 
-    //         !grade || 
-    //         !child_age ||
-    //         !recaptcha
-    //         ) {
-             
-    //         return;
-    //     }
-
-    //     const xhr = new XMLHttpRequest();
-    //     xhr.open('POST', '/registration/register');
-    //     xhr.setRequestHeader('Content-Type', 'application/json');
-    //     xhr.onload = () => {
-    //         if (xhr.status === 200) {
-    //             const response = JSON.parse(xhr.responseText);
-    //             if (response.success) {
-    //                 // redirect to another route
-    //                 window.location = '/success';
-    //             } else {
-    //                 // display error message
-    //             }
-    //         }
-    //     };
-    //     xhr.send(JSON.stringify({
-    //         firstName,
-    //         lastName,
-    //         country,
-    //         state,
-    //         cellNumber,
-    //         email,
-    //         fullName,
-    //         gender,
-    //         grade,
-    //         child_age,
-    //         message,
-    //         'g-recaptcha-response': recaptcha
-    //     }));
-    // });
-
-
-    // $(document).ready(function () {
-    //     $('.requires-validation').submit(function (event) {
-    //         if (this.checkValidity() === false) {
-    //             event.preventDefault();
-    //             event.stopPropagation();
-    //         }
-    //         this.classList.add('was-validated');
-
-    //         if (grecaptcha.getResponse().length == 0) {
-    //             event.preventDefault();
-    //             alert("Please check the reCAPTCHA checkbox.");
-    //         } else {
-    //             var formData = $(this).serialize();
-    //             $.ajax({
-    //                 type: 'POST',
-    //                 url: '/registration/register',
-    //                 data: formData + "&g-recaptcha-response=" + grecaptcha.getResponse(),
-    //                 success: function (data) {
-    //                     event.preventDefault();
-    //                     window.location = '/success';
-    //                 },
-    //                 error: function (data) {
-    //                     alert("An error occurred. Please try again later.");
-    //                 }
-    //             });
-    //         }
-    //     });
-    // });
-
-
-
-    $(document).ready(function () {
-            $('form.requires-validation').submit(function (event) {
-                var recaptcha = $("#g-recaptcha-response").val();
-                const messageBox = document.getElementById('messageBox');
-                const closeMessageBtn = document.getElementById('closeMessageBtn');
-                const message = document.getElementById('message');
-                if (!this.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                } else {
-                    event.preventDefault();
-                    var form = $(this);
-                    var formData = form.serialize();
-                    $.ajax({
-                        type: "POST",
-                        url: "/registration/register",
-                        data: formData,
-                        success: function (response) {
-                            if (recaptcha) {
-                                grecaptcha.reset();
-                                // window.location.href = "/success";
-                                 message.innerHTML = 'Form submitted successfully';
-                                messageBox.style.display = 'block';
-                            } else {
-                                grecaptcha.reset();
-                                alert("Recaptcha failed. Please try again.");
-                            }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.error(textStatus, errorThrown);
-                        }
-                    });
-                }
-                this.classList.add('was-validated');
-            });
-
-            closeMessageBtn.addEventListener('click', function () {
-            messageBox.style.display = 'none';
-        });
-        });
-
-
-
-
-
-
-
-
-    </script>
 </body>
 
 </html>
