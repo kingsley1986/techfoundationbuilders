@@ -10,7 +10,7 @@ router.post("/register", async (req, res) => {
 
   console.log(req.body)
   const response_key = req.body["g-recaptcha-response"];
-console.log(response_key, "Response")
+  console.log(response_key, "Response")
   if (!req.body["g-recaptcha-response"]) {
     return res.status(400).json({ error: "reCaptcha token is missing" });
   }
@@ -24,7 +24,7 @@ console.log(response_key, "Response")
 
     const { success } = response.data;
 
-    if (success && req.body.email ) {
+    if (success && req.body.email) {
       try {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -50,7 +50,7 @@ console.log(response_key, "Response")
 
         const msg = {
           to: "youngafricanstechnology@gmail.com",
-          from: "techfoundationbuilders@gmail.com",
+          from: "youngafricanstechnology@gmail.com",
           subject: "requested",
           text: output,
           html: output,
@@ -71,7 +71,7 @@ console.log(response_key, "Response")
 });
 
 router.get("/new", async (req, res) => {
-  res.render("register", {layout: false});
+  res.render("register", { layout: false });
 });
 
 module.exports = router;

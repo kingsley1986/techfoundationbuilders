@@ -101,23 +101,27 @@ https://templatemo.com/tm-569-edu-meeting
                     <div class="form-items">
                         <h3>Parents Details</h3>
                         <p>Fill in the data below.</p>
-                        <form action="/registration/register" id='cform' class="requires-validation" novalidate method="POST">
-    
+                        <form action="/registration/register" id='cform' class="requires-validation" novalidate
+                            method="POST">
+
                             <div class="col-md-12">
-                                <input class="form-control" id="firstName" type="text" name="firstname" placeholder="Parent first name" required>
+                                <input class="form-control" id="firstName" type="text" name="firstname"
+                                    placeholder="Parent first name" required>
                                 <div class="valid-feedback">firstname field is valid!</div>
                                 <div class="invalid-feedback">firstname field cannot be blank!</div>
                             </div>
-    
+
                             <div class="col-md-12">
-                                <input class="form-control" id="lastName" type="text" name="lastname" placeholder="Parent Last name" required>
+                                <input class="form-control" id="lastName" type="text" name="lastname"
+                                    placeholder="Parent Last name" required>
                                 <div class="valid-feedback">lastname field is valid!</div>
                                 <div class="invalid-feedback">lastname field cannot be blank!</div>
                             </div>
 
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="email" placeholder="email address" required>
+                                <input class="form-control" type="email" name="email" placeholder="email address"
+                                    required>
                                 <div class="valid-feedback">Email field is valid!</div>
                                 <div class="invalid-feedback">Email field cannot be blank!</div>
                             </div>
@@ -129,33 +133,36 @@ https://templatemo.com/tm-569-edu-meeting
                             </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="state" placeholder="State/Province" required>
+                                <input class="form-control" type="text" name="state" placeholder="State/Province"
+                                    required>
                                 <div class="valid-feedback">state/province field is valid!</div>
                                 <div class="invalid-feedback">state/province field cannot be blank!</div>
                             </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" id="phonenumber" type="text" name="cellnumber" placeholder="Phone Number" required>
+                                <input class="form-control" id="phonenumber" type="tel" name="cellnumber"
+                                    placeholder="Phone Number" required>
                                 <div class="valid-feedback">phone Number field is valid!</div>
                                 <div class="invalid-feedback">phone Number field cannot be blank!</div>
                             </div>
-                    
-                            <br/>
-                            
+
+                            <br />
+
                             <h3>Learner's Details</h3>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="childs_fullname" placeholder="Child's Full name" required>
+                                <input class="form-control" type="text" name="childs_fullname"
+                                    placeholder="Child's Full name" required>
                                 <div class="valid-feedback">fullname field is valid!</div>
                                 <div class="invalid-feedback">fullname field cannot be blank!</div>
                             </div>
 
                             <div class="col-md-12">
-                                <input class="form-control" id="age" type="text" name="child_age" placeholder="Childs age" required>
+                                <input class="form-control" id="age" type="number" name="child_age" min="10" max="18"
+                                    placeholder="Childs age" required>
 
-                                <!-- <div class="valid-feedback">age field is valid!</div> -->
-                                <div class="invalid-feedback">age field cannot be blank!</div>
-                                <p id="message" style="color: red; font-size:17px"></p>
+                                <div class="valid-feedback">age field is valid!</div>
+                                <div class="invalid-feedback">Age field can not be blank</div>
 
 
                             </div>
@@ -168,13 +175,15 @@ https://templatemo.com/tm-569-edu-meeting
 
                             <div class="col-md-12 mt-3">
                                 <label class="mb-3 mr-1" for="gender">Gender: </label>
-    
-                                <input type="radio" class="btn-check" name="gender"  value="Male" id="male" autocomplete="off" required>
+
+                                <input type="radio" class="btn-check" name="gender" value="Male" id="male"
+                                    autocomplete="off" required>
                                 <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
-    
-                                <input type="radio" class="btn-check" name="gender"  value="Female" id="female" autocomplete="off" required>
+
+                                <input type="radio" class="btn-check" name="gender" value="Female" id="female"
+                                    autocomplete="off" required>
                                 <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
-    
+
                                 <div class="valid-feedback mv-up">You selected a gender!</div>
                                 <div class="invalid-feedback mv-up">Please select a gender!</div>
                             </div>
@@ -182,41 +191,43 @@ https://templatemo.com/tm-569-edu-meeting
 
                             <div class="col-md-12 message-input">
                                 <div class="single-input-field">
-                                    <textarea placeholder="Leave a comment" name="message" id="message-input"></textarea>
+                                    <textarea placeholder="Leave a comment" name="message"
+                                        id="message-input"></textarea>
                                 </div>
                                 <div style="color: red;" id="message-error"></div>
-                                <br/>
-    
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label">I confirm that all data are correct</label>
-                                <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
-                            </div>
+                                <br />
 
-                            <br />
-                            
-                            <div class="g-recaptcha" data-sitekey="6LdYgEUdAAAAAG9b9WcyjDrokGw1HfzbCKlJ2FgI"></div>
-                            
-                            <div style="color: red;" id="recaptcha-error"></div>
-                            <br />
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label">I confirm that all data are correct</label>
+                                    <div class="invalid-feedback">Please confirm that the entered data are all correct!
+                                    </div>
+                                </div>
+
+                                <br />
+
+                                <div class="g-recaptcha" data-sitekey="6LdYgEUdAAAAAG9b9WcyjDrokGw1HfzbCKlJ2FgI"></div>
+
+                                <div style="color: red;" id="recaptcha-error"></div>
+                                <br />
 
 
-                            <div id="messageBox" style="display:none;">
-                                <p id="successmessage" style="color:green; font-size: 20px"></p>
-                                <button id="closeMessageBtn">Close</button>
-                            </div>
-    
-    
-                            <div class="form-button mt-3">
-                                <button id="submit" type="submit" class="btn btn-primary">Register</button>
-                            </div>
+                                <div id="messageBox" style="display:none;">
+                                    <p id="successmessage" style="color:green; font-size: 20px"></p>
+                                    <button id="closeMessageBtn">Close</button>
+                                </div>
+
+
+                                <div class="form-button mt-3">
+                                    <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                                </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
     <script src="/javascripts/jquery.min.js"></script>
 
 
@@ -234,4 +245,3 @@ https://templatemo.com/tm-569-edu-meeting
 
 </html>
 <!-- ***** Header Area End ***** -->
-
