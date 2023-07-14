@@ -51,12 +51,42 @@ router.post("/register", async (req, res) => {
         const msg = {
           to: "youngafricanstechnology@gmail.com",
           from: "youngafricanstechnology@gmail.com",
-          subject: "requested",
+          subject: "coding Application",
           text: output,
           html: output,
         };
+
+        theMessage = `Greetings.
+
+                      <p>This is an automated response to your application from Young Africans Technology.</p>
+
+                      <p>As we previously explained, in other for us to continue with the process or determine if your child qualifies for our coding program, we must do a video interview and assessment (Zoom) with you and your child together, through the video call, we will ascertain that you are the child's parents and you are giving us your consent to teach the child coding.</p>
+                      <p>We know most parents are working, so we have decided that the interviews will be early in the evenings.</p>
+                      <p>Our interviews/Assessments are done only on Tuesdays and Wednesdays at 7 pm, South African time. Kindly reply to this email with an interview date between Tuesday and Wednesday.</p>
+                      
+                      <br/>
+                      <h4>Kind regards</h4>
+                      <h4>Young Africans Tech</h4>
+                      <br/>
+                      <h4>https://www.youngafricanstech.org</h4>
+
+                    `
+
+        const secondMessage = {
+          to: req.body.email,
+          from: "youngafricanstechnology@gmail.com",
+          subject: "YAT Application",
+          text: theMessage,
+          html: theMessage,
+        };
+
         sgMail.send(msg);
         res.json(msg);
+
+        sgMail.send(secondMessage);
+        res.json(secondMessage)
+
+
       } catch (error) {
         console.log(error);
       }

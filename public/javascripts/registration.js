@@ -80,7 +80,7 @@ $(document).ready(function () {
 
 
                         // window.location.href = "/success";
-                        successmessage.innerHTML = 'Form submitted successfully';
+                        successmessage.innerHTML = 'Form submitted successfully! Please check your email';
                         messageBox.style.display = 'block';
                     } else {
                         grecaptcha.reset();
