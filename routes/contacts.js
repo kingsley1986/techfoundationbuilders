@@ -39,8 +39,8 @@ router.post("/send", async (req, res) => {
 					  `;
 
         const msg = {
-          to: "youngafricanstechnology@gmail.com",
-          from: "techfoundationbuilders@gmail.com",
+          to: "info@youngafricanstech.org",
+          from: "info@youngafricanstech.org",
           subject: "requested",
           text: output,
           html: output,
