@@ -49,9 +49,9 @@ router.post("/register", async (req, res) => {
 					  `;
 
         const msg = {
-          to: "youngafricanstechnology@gmail.com",
-          from: "youngafricanstechnology@gmail.com",
-          subject: "coding Application",
+          to: "register@youngafricanstech.org",
+          from: "register@youngafricanstech.org",
+          subject: "coding Application from " + req.body.childs_fullname,
           text: output,
           html: output,
         };
@@ -74,8 +74,8 @@ router.post("/register", async (req, res) => {
 
         const secondMessage = {
           to: req.body.email,
-          from: "youngafricanstechnology@gmail.com",
-          subject: "YAT Application",
+          from: "register@youngafricanstech.org",
+          subject: "YAT Application for " + req.body.childs_fullname,
           text: theMessage,
           html: theMessage,
         };
