@@ -25,7 +25,7 @@ const registerschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-    
+
   cellnumber: {
     type: String,
     required: true,
@@ -46,6 +46,11 @@ const registerschema = new mongoose.Schema({
   grade: {
     type: String,
     required: true,
+  },
+  interviewdate: {
+    type: Date,
+    required: true,
+
   },
 
   createdAt: {

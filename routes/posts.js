@@ -40,6 +40,7 @@ const upload = multer({
   }),
 });
 
+
 // Get all Blog posts
 
 router.get("/", async (req, res) => {
@@ -79,6 +80,7 @@ router.post("/create", upload.single("cover"), async (req, res, next) => {
 
 // Get a post With comments
 router.get("/:id/comments", async (req, res) => {
+
   Post.findById({ _id: req.params.id })
     .populate("comments", "_id name description createdAt", null, {
       sort: { createdAt: -1 },
