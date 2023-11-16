@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "start-dev": "nodemon",
-    "postinstall": "cd python-scripts && pip install -r requirements.txt"
+    "start-dev": "nodemon"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
