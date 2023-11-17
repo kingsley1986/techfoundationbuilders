@@ -196,7 +196,7 @@ def main():
                 },
                 scopes=SCOPES
             )
-            creds = flow.run_console()
+            creds = flow.run_local_server(port=0, open_browser=False)
 
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
