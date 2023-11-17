@@ -191,7 +191,7 @@ def main():
         else:
             flow = InstalledAppFlow.from_client_config(
                 client_config={
-                    "web": {
+                    "installed": {
                         "client_id": os.getenv("CLIENT_ID"),
                         "project_id": os.getenv("PROJECT_ID"),
                         "auth_uri": os.getenv("AUTH_URI"),
