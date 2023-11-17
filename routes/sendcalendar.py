@@ -151,7 +151,14 @@ def print_meeting_details(event):
         formatted_time_range = f"Error: {e}"
 
     phone_numbers_str = '\n'.join([f'  {number}' for number in phone_numbers])
-
+    # print(f"{summary}\n"
+    #       f"{formatted_start_time}\n"
+    #       f"Time zone: {timezone}\n"
+    #       f"Google Meet joining info\n"
+    #       f"Video call link: {hangout_link}\n"
+    #       f"Or dial:\n"
+    #       f"{phone_numbers_str} PIN: {pin}\n"
+    #       f"More phone numbers: https://tel.meet/{hangout_link}?pin={pin}")
     meeting_details = {
         "summary": summary,
         "formatted_start_time": formatted_time_range,
@@ -196,7 +203,7 @@ def main():
                 },
                 scopes=SCOPES
             )
-            creds = flow.run_local_server(port=0, open_browser=False)
+            creds = flow.run_local_server(port=0)
 
         with open('token.json', 'w') as token:
             token.write(creds.to_json())
