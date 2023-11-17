@@ -1,7 +1,6 @@
 
 dbus-python==1.2.18
 decorator==4.4.2
-defer==1.0.6
 demo-nodes-py==0.20.3
 diagnostic-msgs==4.2.3
 distlib==0.3.4
