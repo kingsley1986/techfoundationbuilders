@@ -38,7 +38,7 @@ const { exec } = require('child_process');
 
 
 // Schedule a task every 2 seconds
-cron.schedule('*/10 * * * *', () => {
+cron.schedule('0 * * * *', () => {
   // Execute the Python script
   exec('python3 routes/sendcalendar.py', (error, stdout, stderr) => {
     if (error) {
