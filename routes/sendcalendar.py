@@ -7,8 +7,18 @@ import os.path
 import sys
 from datetime import datetime
 
+first = "2023-11-17"
+email = "info@youngafricanstech.org"
+if len(sys.argv) >= 3:
+    # Index 1 and 2 exist
+    # Access the values at index 1 and 2
+    value_at_index_1 = sys.argv[1]
+    value_at_index_2 = sys.argv[2]
+    first = str(sys.argv[2])
+    email = str(sys.argv[1])
 
-first = str(sys.argv[2])
+# first = str(sys.argv[2])
+# first = "2023-11-17"
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 
@@ -191,7 +201,7 @@ def main():
         else:
             flow = InstalledAppFlow.from_client_config(
                 client_config={
-                    "installed": {
+                    "web": {
                         "client_id": os.getenv("CLIENT_ID"),
                         "project_id": os.getenv("PROJECT_ID"),
                         "auth_uri": os.getenv("AUTH_URI"),
@@ -212,7 +222,6 @@ def main():
         service = build('calendar', 'v3', credentials=creds)
 
         # Specify the email address for invitation
-        email = str(sys.argv[1])
 
         # Check if an event with the same date exists
         check_existing_event(service, email, first)

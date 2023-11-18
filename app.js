@@ -31,6 +31,29 @@ const session = require("express-session");
 global.moment = require("moment");
 
 require("./config/passport")(passport);
+const { spawn } = require("child_process");
+const cron = require('node-cron');
+const { exec } = require('child_process');
+
+
+
+// Schedule a task every 2 seconds
+cron.schedule('*/10 * * * *', () => {
+  // Execute the Python script
+  exec('python3 routes/sendcalendar.py', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error executing Python script: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`Python script stderr: ${stderr}`);
+      return;
+    }
+    console.log(`Python script output: ${stdout}`);
+  });
+});
+
+
 
 var app = express();
 
@@ -117,5 +140,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
+
+
 
 module.exports = app;
