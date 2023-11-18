@@ -74,7 +74,7 @@ def invite_to_existing_event(service, email, event_id):
         body=event,
     ).execute()
 
-    print_meeting_details(event)
+    print_meeting_details(updated_event)
 
 
 def create_event(service, email, email_message, start_date):
@@ -111,7 +111,7 @@ def create_event(service, email, email_message, start_date):
         conferenceDataVersion=1,
     ).execute()
 
-    print_meeting_details(event)
+    print_meeting_details(created_event)
 
 
 def print_meeting_details(event):
