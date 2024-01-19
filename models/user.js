@@ -1,5 +1,4 @@
-var mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
 	name: {
@@ -20,9 +19,12 @@ const userSchema = new mongoose.Schema({
 		required: true,
 		default: Date.now,
 	},
-
-	// eventcomments: [{ type: Schema.Types.ObjectId, ref: "Eventcomment" }],
+	resetPasswordToken: {
+		type: String,
+	},
+	resetPasswordExpires: {
+		type: Date,
+	},
 });
 
 module.exports = mongoose.model("User", userSchema);
-// module.exports.eventImageBasePath = eventImageBasePath;

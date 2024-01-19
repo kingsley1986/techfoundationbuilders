@@ -168,7 +168,6 @@ router.post("/:id/update", upload.single("cover"), async (req, res, next) => {
 });
 
 router.get("/:id/delete", async (req, res) => {
-  console.log("this is splited", process.env.SPLITTED);
   Course.findById(req.params.id, function (err, course) {
     var splittedKey = course.logo.replace(process.env.SPLITTED, "");
     const awsCredentials = {
