@@ -4,6 +4,16 @@ require("dotenv").config();
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
+const generateRegistrationCode = () => {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let code = "";
+  for (let i = 0; i < 15; i++) {
+    const charIndex = Math.floor(Math.random() * characters.length);
+    code += characters.charAt(charIndex);
+  }
+  return code;
+};
+
 const registerschema = new mongoose.Schema({
   parent_firstname: {
     type: String,
@@ -25,12 +35,10 @@ const registerschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   cellnumber: {
     type: String,
     required: true,
   },
-
   childs_fullname: {
     type: String,
     required: true,
@@ -47,17 +55,24 @@ const registerschema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  interviewdate: {
-    type: Date,
-    required: true,
-
+  registrationcode: {
+    type: String,
+    unique: true,
   },
-
   createdAt: {
     type: Date,
     required: true,
     default: Date.now,
   },
+});
+
+// Mongoose pre-save hook to generate a registration code
+registerschema.pre("save", async function (next) {
+  // Generate a unique registration code
+  this.registrationcode = generateRegistrationCode();
+
+  // Continue with the save operation
+  next();
 });
 
 module.exports = mongoose.model("Register", registerschema);

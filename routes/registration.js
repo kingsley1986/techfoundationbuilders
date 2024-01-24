@@ -6,6 +6,7 @@ const { spawn } = require("child_process");
 const axios = require("axios");
 
 router.post("/register", async (req, res) => {
+  console.log("I actualy came here now")
   const response_key = req.body["g-recaptcha-response"];
   if (!req.body["g-recaptcha-response"]) {
     return res.status(400).json({ error: "reCaptcha token is missing" });
