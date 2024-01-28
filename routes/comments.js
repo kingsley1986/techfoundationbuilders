@@ -45,7 +45,20 @@ router.post("/:postId/comment", async (req, res) => {
   }
 });
 
-router.delete("/comments/:postId/:commentId", async function (req, res) {
+
+// Middleware to check if user is admin
+const isAdmin = (req, res, next) => {
+  if (req.user && req.user.roles && req.user.roles.includes("admin")) {
+    // If the user is an admin, proceed to the next middleware or route handler
+    next();
+  } else {
+    // If not an admin, redirect or send an error response
+    res.status(403).send("Permission denied. Only admin users can access this route.");
+  }
+};
+
+
+router.delete("/comments/:postId/:commentId", isAdmin, async function (req, res) {
   try {
     const post = await Post.findByIdAndUpdate(
       req.params.postId,

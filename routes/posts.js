@@ -57,12 +57,29 @@ router.get("/", async (req, res) => {
 });
 
 // New blogpost routes
-router.get("/new", async (req, res, next) => {
+// router.get("/new", async (req, res, next) => {
+//   renderNewPage(res, new Post());
+// });
+
+
+// Middleware to check if user is admin
+const isAdmin = (req, res, next) => {
+  if (req.user && req.user.roles && req.user.roles.includes("admin")) {
+    // If the user is an admin, proceed to the next middleware or route handler
+    next();
+  } else {
+    // If not an admin, redirect or send an error response
+    res.status(403).send("Permission denied. Only admin users can access this route.");
+  }
+};
+
+// Apply the isAdmin middleware only to the "/new" route
+router.get("/new", isAdmin, async (req, res, next) => {
   renderNewPage(res, new Post());
 });
 
 // Create blogpost routes
-router.post("/create", upload.single("cover"), async (req, res, next) => {
+router.post("/create", isAdmin, upload.single("cover"), async (req, res, next) => {
   const post = new Post({
     title: req.body.title,
     description: req.body.description,
@@ -94,7 +111,7 @@ router.get("/:id/comments", async (req, res) => {
     });
 });
 
-router.get("/:id/edit", async (req, res, next) => {
+router.get("/:id/edit", isAdmin, async (req, res, next) => {
   Post.findById(req.params.id, function (err, post) {
     if (!post) {
       console.log("Noooooooooo");
@@ -108,7 +125,7 @@ router.get("/:id/edit", async (req, res, next) => {
   });
 });
 
-router.post("/edit/:id", upload.single("cover"), async (req, res, next) => {
+router.post("/edit/:id", isAdmin, upload.single("cover"), async (req, res, next) => {
   Post.findById(req.params.id, function (err, post) {
     var splittedKey = post.postImage.replace(process.env.SPLITTED, "");
 
@@ -163,7 +180,7 @@ router.post("/edit/:id", upload.single("cover"), async (req, res, next) => {
   });
 });
 
-router.get("/:id/delete", async (req, res) => {
+router.get("/:id/delete", isAdmin, async (req, res) => {
   Post.findById(req.params.id, function (err, post) {
 
     var splittedKey = post.postImage.replace(process.env.SPLITTED, "");

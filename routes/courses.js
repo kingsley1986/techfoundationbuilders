@@ -56,13 +56,24 @@ router.get("/", async (req, res) => {
   });
 });
 
+// Middleware to check if user is admin
+const isAdmin = (req, res, next) => {
+  if (req.user && req.user.roles && req.user.roles.includes("admin")) {
+    // If the user is an admin, proceed to the next middleware or route handler
+    next();
+  } else {
+    // If not an admin, redirect or send an error response
+    res.status(403).send("Permission denied. Only admin users can access this route.");
+  }
+};
+
 // New blogpost routes
-router.get("/new", async (req, res, next) => {
+router.get("/new", isAdmin, async (req, res, next) => {
   renderNewPage(res, new Course());
 });
 
 // Create blogpost routes
-router.post("/create", upload.single("cover"), (req, res, next) => {
+router.post("/create", isAdmin, upload.single("cover"), (req, res, next) => {
   const course = new Course({
     title: req.body.title,
     description: req.body.description,
@@ -77,7 +88,7 @@ router.post("/create", upload.single("cover"), (req, res, next) => {
   }
 });
 
-router.get("/:id/edit", async (req, res, next) => {
+router.get("/:id/edit", isAdmin, async (req, res, next) => {
   Course.findById(req.params.id, function (err, course) {
     if (!course) {
       console.log("Noooooooooo");
@@ -112,7 +123,7 @@ router.get("/:id/edit", async (req, res, next) => {
 //   });
 // });
 
-router.post("/:id/update", upload.single("cover"), async (req, res, next) => {
+router.post("/:id/update", isAdmin, upload.single("cover"), async (req, res, next) => {
   Course.findById(req.params.id, function (err, course) {
     var splittedKey = course.logo.replace(process.env.SPLITTED, "");
 
@@ -167,7 +178,7 @@ router.post("/:id/update", upload.single("cover"), async (req, res, next) => {
   });
 });
 
-router.get("/:id/delete", async (req, res) => {
+router.get("/:id/delete", isAdmin, async (req, res) => {
   Course.findById(req.params.id, function (err, course) {
     var splittedKey = course.logo.replace(process.env.SPLITTED, "");
     const awsCredentials = {

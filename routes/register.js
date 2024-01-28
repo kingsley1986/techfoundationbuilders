@@ -104,7 +104,7 @@ router.post("/student", async (req, res) => {
         await newRegistration.save();
 
         // Send email to the registered user with a link
-        await sendEmailConfirmation(req.body.email, req.body.parent_firstname, req.body.parent_lastname, newRegistration.registrationcode);
+        await sendEmailConfirmation(req.body.email, req.body.parent_firstname, req.body.parent_lastname, newRegistration.registrationcode, req.body.country, req.body.state, req.body.cellnumber, req.body.childs_fullname, req.body.child_age, req.body.gender, req.body.grade, req.body.message);
 
         res.status(200).json({ message: "Python script executed successfully" });
 
@@ -117,7 +117,7 @@ router.post("/student", async (req, res) => {
 
 
 // Function to send email confirmation using SendGrid
-async function sendEmailConfirmation(email, parent_firstname, parent_lastname, registrationCode) {
+async function sendEmailConfirmation(email, parent_firstname, parent_lastname, registrationCode, country, state, cellnumber, childs_fullname, child_age, gender, grade, message) {
     const msg = {
         to: email,
         from: "register@youngafricanstech.org", // Replace with your SendGrid verified email
@@ -161,8 +161,38 @@ async function sendEmailConfirmation(email, parent_firstname, parent_lastname, r
     `,
     };
 
+
+
+    const output = `
+                        <h3>Registration Details </h3>
+                        <ul>
+                            <li><h1>Parent Firstname: ${parent_firstname}</h1></li>
+                            <li><h3>Parent Lastname</h3>: ${parent_lastname}</li>
+                            <li>Country: ${country}</li>
+                            <li>State: ${state}</li>
+                            <li>Email: ${email}</li>
+                            <li>Phone: ${cellnumber}</li>
+                            <li>Child Fullname: ${childs_fullname}</li>
+                            <li>Child Age: ${child_age}</li>
+                            <li>Gender: ${gender}</li>
+                            <li>Grade: ${grade}</li>
+                        </ul>
+                        <h3>Message</h3>
+                        <p>Request: ${message}</p>
+                    `;
+
+    const my_msg = {
+        to: "register@youngafricanstech.org",
+        from: "register@youngafricanstech.org",
+        subject: "coding Application from " + childs_fullname,
+        text: output,
+        html: output,
+    };
+
     try {
         await sgMail.send(msg);
+        await sgMail.send(my_msg);
+
 
         console.log("Email sent successfully");
     } catch (error) {

@@ -25,6 +25,11 @@ const userSchema = new mongoose.Schema({
 	resetPasswordExpires: {
 		type: Date,
 	},
+	roles: {
+		type: [String], // Array of roles
+		default: [], // Default is an empty array
+		enum: ["admin", "superAdmin", "editor"], // Allowed roles
+	},
 });
 
 module.exports = mongoose.model("User", userSchema);
