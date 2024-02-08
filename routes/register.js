@@ -129,12 +129,20 @@ async function sendEmailConfirmation(email, parent_firstname, parent_lastname, r
 
     <strong>Step 1: Tutorial for Assessment</strong><br><p>Kindly watch the three tutorials provided by us, meticulously following the instructions therein. It is imperative that you comprehend and replicate the actions demonstrated in each video.</p>
 
-        - <em>Video 1:</em> Install Python, Git Bash, and Visual Studio Code on your computer as per the guidelines presented. 
-        Watch the tutorial <a href="https://youtu.be/8bGpZ91Zhu0" target="_blank">"https://youtu.be/8bGpZ91Zhu0"</a>.<br>
-        - <em>Video 2:</em> Familiarize yourself with Linux commands by replicating the examples provided. 
-        Watch the tutorial <a href="https://youtu.be/YEyJVrpB-_4" target="_blank">"https://youtu.be/YEyJVrpB-_4"</a>.<br>
-        - <em>Video 3:</em> Understand variables and lists as demonstrated in the third tutorial. 
-        Watch the tutorial <a href="https://youtu.be/3CWtBEZhRAM" target="_blank">"https://youtu.be/3CWtBEZhRAM"</a>
+        - <em>Video 1:</em> Install Python, Git Bash, and Visual Studio Code on your computer. 
+        Watch the tutorial <a href="https://youtu.be/8bGpZ91Zhu0" target="_blank">"https://youtu.be/8bGpZ91Zhu0"</a>.
+        <br>
+
+        - <em>Video 2:</em> Learn Linux Commands with Git Bash on Windows. 
+        Watch the tutorial <a href="https://youtu.be/YEyJVrpB-_4" target="_blank">"https://youtu.be/YEyJVrpB-_4"</a>.
+        <br>
+
+        - <em>Video 3:</em> Learn Python variables as demonstrated in this tutorial. 
+        Watch the tutorial <a href="https://youtu.be/nMVozkBYpMY" target="_blank">"https://youtu.be/nMVozkBYpMY"</a>
+        <br>
+
+        - <em>Video 4:</em> Learn Python List/Array as demonstrated in this tutorial. 
+        Watch the tutorial <a href="https://youtu.be/CVHN9-6bbYA" target="_blank">"https://youtu.be/CVHN9-6bbYA"</a>
 
 
     <p><strong>Step 2: Interview Booking</strong><br>Upon completion of the tutorials, execute the practical tasks outlined and ensure a thorough understanding of the content. Subsequently, use the provided registration code to book your interview via the link below. Failure to enter your registration code may impede your ability to schedule an interview.</p>
