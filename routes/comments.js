@@ -45,7 +45,6 @@ router.post("/:postId/comment", async (req, res) => {
   }
 });
 
-
 // Middleware to check if user is admin
 const isAdmin = (req, res, next) => {
   if (req.user && req.user.roles && req.user.roles.includes("admin")) {
@@ -53,32 +52,37 @@ const isAdmin = (req, res, next) => {
     next();
   } else {
     // If not an admin, redirect or send an error response
-    res.status(403).send("Permission denied. Only admin users can access this route.");
+    res
+      .status(403)
+      .send("Permission denied. Only admin users can access this route.");
   }
 };
 
+router.delete(
+  "/comments/:postId/:commentId",
+  isAdmin,
+  async function (req, res) {
+    try {
+      const post = await Post.findByIdAndUpdate(
+        req.params.postId,
+        {
+          $pull: { comments: req.params.commentId },
+        },
+        { new: true }
+      );
 
-router.delete("/comments/:postId/:commentId", isAdmin, async function (req, res) {
-  try {
-    const post = await Post.findByIdAndUpdate(
-      req.params.postId,
-      {
-        $pull: { comments: req.params.commentId },
-      },
-      { new: true }
-    );
+      if (!post) {
+        return res.status(400).send("Post not found!");
+      }
 
-    if (!post) {
-      return res.status(400).send("Post not found");
+      await Comment.findByIdAndDelete(req.params.commentId);
+
+      res.send("Success");
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Something went wrong");
     }
-
-    await Comment.findByIdAndDelete(req.params.commentId);
-
-    res.send("Success");
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("Something went wrong");
   }
-});
+);
 
 module.exports = router;
